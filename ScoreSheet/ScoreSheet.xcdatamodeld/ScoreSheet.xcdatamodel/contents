@@ -1,4 +1,55 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<model name="Test1.xcdatamodel" userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="1" systemVersion="11A491" minimumToolsVersion="Automatic" macOSVersion="Automatic" iOSVersion="Automatic">
-    <elements/>
+<model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="10171" systemVersion="15E65" minimumToolsVersion="Automatic">
+    <entity name="HomeTeam" syncable="YES"/>
+    <entity name="MatchInfo" representedClassName=".MatchInfo" syncable="YES">
+        <attribute name="date" optional="YES" attributeType="Date" syncable="YES"/>
+        <attribute name="homeTeam" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="homeTeamServes" attributeType="Boolean" defaultValueString="YES" syncable="YES"/>
+        <attribute name="lineupHome1" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+        <attribute name="lineupHome1PointsScored" optional="YES" attributeType="Transformable" syncable="YES"/>
+        <attribute name="lineupHome2" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+        <attribute name="lineupHome3" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+        <attribute name="lineupHome4" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+        <attribute name="lineupHome5" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+        <attribute name="lineupHome6" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+        <attribute name="lineupHomeLibero" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+        <attribute name="lineupVisitor1" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+        <attribute name="lineupVisitor2" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+        <attribute name="lineupVisitor3" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+        <attribute name="lineupVisitor4" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+        <attribute name="lineupVisitor5" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+        <attribute name="lineupVisitor6" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+        <attribute name="lineupVisitorLibero" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+        <attribute name="location" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="startingTime" optional="YES" attributeType="Date" syncable="YES"/>
+        <attribute name="visitingTeam" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="visitingTeamServes" optional="YES" attributeType="Boolean" defaultValueString="NO" syncable="YES"/>
+        <relationship name="fivePoints" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Points" inverseName="fivePoints" inverseEntity="Points" syncable="YES"/>
+        <relationship name="fourPoints" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Points" inverseName="fourPoints" inverseEntity="Points" syncable="YES"/>
+        <relationship name="onePoint" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Points" inverseName="onePoint" inverseEntity="Points" syncable="YES"/>
+        <relationship name="threePoints" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Points" inverseName="threePoints" inverseEntity="Points" syncable="YES"/>
+        <relationship name="twoPoints" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Points" inverseName="twoPoints" inverseEntity="Points" syncable="YES"/>
+    </entity>
+    <entity name="Points" syncable="YES">
+        <attribute name="five" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+        <attribute name="four" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+        <attribute name="one" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+        <attribute name="three" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+        <attribute name="two" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+        <relationship name="fivePoints" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="MatchInfo" inverseName="fivePoints" inverseEntity="MatchInfo" syncable="YES"/>
+        <relationship name="fourPoints" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="MatchInfo" inverseName="fourPoints" inverseEntity="MatchInfo" syncable="YES"/>
+        <relationship name="onePoint" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="MatchInfo" inverseName="onePoint" inverseEntity="MatchInfo" syncable="YES"/>
+        <relationship name="threePoints" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="MatchInfo" inverseName="threePoints" inverseEntity="MatchInfo" syncable="YES"/>
+        <relationship name="twoPoints" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="MatchInfo" inverseName="twoPoints" inverseEntity="MatchInfo" syncable="YES"/>
+    </entity>
+    <entity name="Venue" syncable="YES"/>
+    <entity name="VisitingTeam" syncable="YES"/>
+    <fetchRequest name="homeTeam" entity="MatchInfo" predicateString="homeTeam CONTAINS &quot;Palmer&quot;" fetchBatchSize="4"/>
+    <elements>
+        <element name="MatchInfo" positionX="-110" positionY="-18" width="128" height="450"/>
+        <element name="Points" positionX="466" positionY="147" width="128" height="195"/>
+        <element name="HomeTeam" positionX="99" positionY="135" width="128" height="45"/>
+        <element name="Venue" positionX="108" positionY="144" width="128" height="45"/>
+        <element name="VisitingTeam" positionX="117" positionY="153" width="128" height="45"/>
+    </elements>
 </model>
